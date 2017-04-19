@@ -1,6 +1,13 @@
 # Sublime cheatsheet
 
 
+
+## Command shortcuts
+
+
+    ^M          - find matching brace
+
+
 ## emmett 
 
 http://docs.emmet.io/actions/go-to-pair/

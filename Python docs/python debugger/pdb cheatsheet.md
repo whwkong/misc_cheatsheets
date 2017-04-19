@@ -34,6 +34,7 @@ The typical usage to break into the debugger from a running program is to insert
     
 	n		- next line
 	l		- list source code (default : 11 lines)
+    ll      - longlist, current line is marked with '->'
 	u		- navigate up a stack frame (step up)
 	d		- navigate down a stack frame (step down)
 	p		- print the value of an expression
