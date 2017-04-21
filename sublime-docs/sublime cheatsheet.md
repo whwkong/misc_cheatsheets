@@ -5,8 +5,10 @@
 ## Command shortcuts
 
 
-    ^M          - find matching brace
+    ^M              - find matching brace
 
+
+    ^ CMD G         - multi-select editing; select string, then hit ^ CMD G
 
 ## emmett 
 
