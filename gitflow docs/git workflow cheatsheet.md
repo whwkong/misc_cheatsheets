@@ -140,3 +140,35 @@ In contrast, `git merge master` does this :
 A separate commit (G) will be created and merged with the master branch.  In this case, the feature branch can be pushed to the upstream, and the tip of origin/master can be easily fast-forwarded.  
 
 
+## git tags
+
+http://alblue.bandlem.com/2011/04/git-tip-of-week-tags.html 
+
+### branches vs tags
+
+- Summary :
+    - branches are mutable references
+    - tags are immutable references 
+
+A branch is a label that points to a specific commit; however, any `branch` 
+reference is automatically updated to point to a new commit.
+
+A tag is created to point to a specific commit, and thereafter does not 
+change, even if the branch moves on.
+
+
+### examples
+
+Tags are stored at `.git/refs/tags/`
+
+    $ git tag               # list all tags
+    $ git tag v0.2          # create v0.2
+    $ git tag -d v0.2       # delete v0.2
+    $ git show v0.2         # show commit with tag
+
+If you use an annotated tag, then the tag itself is an object (which allows
+you to store meta-data within the tag).  The `.git/refs/tags/` entry for
+the tag is itself a tag object that then points to a commit. 
+
+
+
