@@ -49,6 +49,42 @@ Push
     git reset --hard HEAD~2     # hard resets wipe out staging area and working tree.  
 
 
+## HEAD^ vs HEAD~
+
+Note : generally speaking, use HEAD~  
+
+http://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git
+
+`ref~` is shorthand for ref~1 and means the commit's first parent. ref~2 means the commit's first parent's first parent. ref~3 means the commit's first parent's first parent's first parent. And so on.
+
+`ref^` is shorthand for ref^1 and means the commit's first parent. But where the two differ is that ref^2 means the commit's second parent (remember, commits can have two parents when they are a merge).
+
+
+    Here is an illustration...
+    Both commit nodes B and C are parents of commit node A. Parent commits are ordered left-to-right.
+    G   H   I   J
+     \ /     \ /
+      D   E   F
+       \  |  / \
+        \ | /   |
+         \|/    |
+          B     C
+           \   /
+            \ /
+             A
+             
+    A =      = A^0
+    B = A^   = A^1     = A~1
+    C = A^2  = A^2
+    D = A^^  = A^1^1   = A~2
+    E = B^2  = A^^2
+    F = B^3  = A^^3
+    G = A^^^ = A^1^1^1 = A~3
+    H = D^2  = B^^2    = A^^^2  = A~2^2
+    I = F^   = B^3^    = A^^3^
+    J = F^2  = B^3^2   = A^^3^2
+
+
 ### origin
 
 Origin is just an alias.  
@@ -161,10 +197,11 @@ change, even if the branch moves on.
 
 Tags are stored at `.git/refs/tags/`
 
-    $ git tag               # list all tags
-    $ git tag v0.2          # create v0.2
-    $ git tag -d v0.2       # delete v0.2
-    $ git show v0.2         # show commit with tag
+    $ git tag                                   # list all tags
+    $ git tag v0.2                              # create v0.2
+    $ git tag -d v0.2                           # delete v0.2
+    $ git show v0.2                             # show commit with tag
+    $ git tag -a v1 -m "Version 1 release"      # create annotated tag
 
 If you use an annotated tag, then the tag itself is an object (which allows
 you to store meta-data within the tag).  The `.git/refs/tags/` entry for

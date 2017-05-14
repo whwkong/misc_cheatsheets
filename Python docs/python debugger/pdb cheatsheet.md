@@ -26,7 +26,16 @@ The typical usage to break into the debugger from a running program is to insert
 
 ## Common pdb commands
 
-	b  		- set a breakpoint
+	b (num)                         - set a breakpoint at a line number
+    b                               - list all breakpoints
+    c (num)                         - clear breakpoints; erases bp
+    disable (num)                   - disable breakpoint; doesn't erase bp
+    ignore [count]                  - ignore breakpoint count times
+    condition (bpnum) [condition]   - set conditional bp
+    
+    display EWPR    - display EXPR whenver EXPR changes.  
+                    - Make sure EXPR has no side effects
+    
 	c		- continue debugging until you hit a breakpoint
     
 	s		- step through code
@@ -35,6 +44,7 @@ The typical usage to break into the debugger from a running program is to insert
 	n		- next line
 	l		- list source code (default : 11 lines)
     ll      - longlist, current line is marked with '->'
+    
 	u		- navigate up a stack frame (step up)
 	d		- navigate down a stack frame (step down)
 	p		- print the value of an expression
@@ -45,6 +55,12 @@ The typical usage to break into the debugger from a running program is to insert
 
 
 
+
+## Printing local values
+
+    p <var>     
+    p locals()
+    p globals()
 
 ## Methods to enter Python 'pdb'
 
