@@ -28,7 +28,7 @@ The typical usage to break into the debugger from a running program is to insert
 
 	b (num)                         - set a breakpoint at a line number
     b                               - list all breakpoints
-    c (num)                         - clear breakpoints; erases bp
+    cl (num)                         - clear breakpoints; erases bp
     disable (num)                   - disable breakpoint; doesn't erase bp
     ignore [count]                  - ignore breakpoint count times
     condition (bpnum) [condition]   - set conditional bp
